@@ -44,7 +44,7 @@ function App() {
           }
         />
         <Route
-          path="/#/calendar"
+          path="/calendar"
           element={
             <>
               <PageTitle title="تقویم" />
