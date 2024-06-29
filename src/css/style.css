@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: irSansWeb;
+  src: url('../fonts/IRANSansWeb.ttf');
+}
+@font-face {
+  font-family: irSansWebBold;
+  src: url('../fonts/IRANSansWeb_Bold.ttf');
+}
+@font-face {
+  font-family: irSansWebBolder;
+  src: url('../fonts/IRANSansWeb_Bold.ttf');
+}
+
+
+
+@font-face {
+  font-family: 'irSansUltraLight';
+  src:
+    local('irSans'),
+    url('../fonts/IRANSansWeb_UltraLight.ttf') format('truetype');
+}
+
+* {
+  font-family: irSansWeb;
+}
+
+
 @layer base {
   body {
     @apply font-satoshi font-normal text-base text-body bg-whiten relative z-1;
