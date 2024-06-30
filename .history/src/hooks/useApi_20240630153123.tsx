@@ -10,6 +10,7 @@ function useApi() {
   const token = localStorage.getItem('token');
 
   const create = async (
+    token: string,
     phone_number: string,
     full_name: string,
     email: string,

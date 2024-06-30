@@ -40,7 +40,6 @@ function useApi() {
         console.log(data);
         setError('');
         setStatusAdd(true);
-        window.location.href = '/dashboard';
       } else {
         setError(response.statusText);
       }

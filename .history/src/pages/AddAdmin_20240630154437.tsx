@@ -116,7 +116,6 @@ const AddAdmin: React.FC = () => {
               </div>
 
               <button
-                type="button"
                 onClick={handleAddAdmin}
                 className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
               >

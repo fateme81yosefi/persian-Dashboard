@@ -3,20 +3,21 @@ import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import useLogin from '../hooks/useLogin';
 import useApi from '../hooks/useApi';
 
-const AddAdmin: React.FC = () => {
-  const { error, create, statusAdd } = useApi();
+const AddAdmin = () => {
+  const { error, create ,statusAdd} = useApi();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleAddAdmin = async () => {
-    await create(phoneNumber, fullName, email, password);
+    await create(phoneNumber,fullName,email, password);
   };
 
   return (
     <>
-      {error && (
+
+{error && (
         <div
           className="flex fixed justify-between items-center p-4 mb-4 text-sm text-white rounded-lg bg-red-400 dark:bg-gray-800 dark:text-red-400"
           role="alert"
@@ -51,9 +52,7 @@ const AddAdmin: React.FC = () => {
             >
               <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
             </svg>
-            <span className="font-medium ml-10">
-              ادمین با موفقیت اضافه شد!{' '}
-            </span>
+            <span className="font-medium ml-10">با </span>
           </div>
           {error}
         </div>
@@ -115,11 +114,7 @@ const AddAdmin: React.FC = () => {
                 />
               </div>
 
-              <button
-                type="button"
-                onClick={handleAddAdmin}
-                className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-              >
+              <button onClick={handleAddAdmin} className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                 ثبت نام
               </button>
             </div>
