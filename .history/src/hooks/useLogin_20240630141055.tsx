@@ -26,13 +26,11 @@ function useLogin() {
       const data: LoginResponse = await response.json();
 
       if (response.ok) {
-        console.log(data.token); 
-        localStorage.setItem('token', data.token);
+        console.log(data.token); // نمایش توکن در کنسول
         setLoggedIn(true);
         setError('');
-        window.location.href = '/dashboard'; 
       } else {
-        setError(response.statusText);
+        setError(data.error);
       }
     } catch (error) {
       setError('خطا در ارتباط با سرور');
@@ -45,4 +43,3 @@ function useLogin() {
 }
 
 export default useLogin;
-

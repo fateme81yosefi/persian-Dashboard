@@ -30,9 +30,9 @@ function useLogin() {
         localStorage.setItem('token', data.token);
         setLoggedIn(true);
         setError('');
-        window.location.href = '/dashboard'; 
+        history.push('/dashboard');
       } else {
-        setError(response.statusText);
+        setError(data.error);
       }
     } catch (error) {
       setError('خطا در ارتباط با سرور');
@@ -45,4 +45,3 @@ function useLogin() {
 }
 
 export default useLogin;
-

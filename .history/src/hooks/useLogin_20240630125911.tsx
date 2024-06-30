@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 interface LoginResponse {
   error: string;
-  token: string; // اضافه کردن فیلد token به interface LoginResponse
 }
 
 function useLogin() {
@@ -26,13 +25,14 @@ function useLogin() {
       const data: LoginResponse = await response.json();
 
       if (response.ok) {
-        console.log(data.token); 
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', Response.to); 
         setLoggedIn(true);
         setError('');
-        window.location.href = '/dashboard'; 
+        window.location.href = '/dashboard';
       } else {
-        setError(response.statusText);
+
+        setError(response.statusText)
+    
       }
     } catch (error) {
       setError('خطا در ارتباط با سرور');
@@ -45,4 +45,3 @@ function useLogin() {
 }
 
 export default useLogin;
-

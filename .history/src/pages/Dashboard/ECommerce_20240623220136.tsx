@@ -6,8 +6,6 @@ import ChartTwo from '../../components/Charts/ChartTwo';
 import ChatCard from '../../components/Chat/ChatCard';
 import TableOne from '../../components/Tables/TableOne';
 
-
-
 const ECommerce: React.FC = () => {
   return (
     <div style={{ direction: 'rtl' }}>

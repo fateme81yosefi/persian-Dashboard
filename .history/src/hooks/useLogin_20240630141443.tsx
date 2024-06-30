@@ -30,9 +30,9 @@ function useLogin() {
         localStorage.setItem('token', data.token);
         setLoggedIn(true);
         setError('');
-        window.location.href = '/dashboard'; 
+        
       } else {
-        setError(response.statusText);
+        setError(data.error);
       }
     } catch (error) {
       setError('خطا در ارتباط با سرور');
@@ -46,3 +46,29 @@ function useLogin() {
 
 export default useLogin;
 
+const checkTokenValidity = () => {
+    const token = localStorage.getItem('token');
+  
+    if (!token) {
+      // Token not found in localStorage, user is not logged in
+      return false;
+    }
+  
+    // Decode and check token expiration
+    const decodedToken = decodeToken(token);
+    const currentTime = Date.now() / 1000; // Convert milliseconds to seconds
+  
+    if (decodedToken.exp < currentTime) {
+      // Token has expired
+      localStorage.removeItem('token'); // Remove expired token
+      return false;
+    }
+  
+    return true;
+  };
+  
+  const decodeToken = (token: string) => {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    return JSON.parse(window.atob(base64));
+  };

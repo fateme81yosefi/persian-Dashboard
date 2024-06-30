@@ -30,9 +30,9 @@ function useLogin() {
         localStorage.setItem('token', data.token);
         setLoggedIn(true);
         setError('');
-        window.location.href = '/dashboard'; 
+        window.location.href = '/login'; 
       } else {
-        setError(response.statusText);
+        setError(data.error);
       }
     } catch (error) {
       setError('خطا در ارتباط با سرور');

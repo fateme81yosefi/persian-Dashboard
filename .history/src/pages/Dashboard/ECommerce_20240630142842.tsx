@@ -7,6 +7,36 @@ import ChatCard from '../../components/Chat/ChatCard';
 import TableOne from '../../components/Tables/TableOne';
 
 
+const checkTokenValidity = () => {
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    redirectToLoginPage(); 
+    return false;
+  }
+
+  // Decode and check token expiration
+  const decodedToken = decodeToken(token);
+  const currentTime = Date.now() / 1000; 
+
+  if (decodedToken.exp < currentTime) {
+    localStorage.removeItem('token'); 
+    redirectToLoginPage(); 
+    return false;
+  }
+
+  return true;
+};
+
+const decodeToken = (token:string) => {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  return JSON.parse(window.atob(base64));
+};
+
+const redirectToLoginPage = () => {
+  window.location.href = '/'; 
+};
 
 const ECommerce: React.FC = () => {
   return (

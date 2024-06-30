@@ -45,4 +45,4 @@ function useLogin() {
 }
 
 export default useLogin;
-
+window.location.href = '/login'; 

@@ -32,7 +32,7 @@ function useLogin() {
         setError('');
         window.location.href = '/dashboard'; 
       } else {
-        setError(response.statusText);
+        setError(data.error);
       }
     } catch (error) {
       setError('خطا در ارتباط با سرور');
