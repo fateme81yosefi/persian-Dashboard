@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import LogoDark from '../../../public/73b98efb3ac343b48544a710e68c6dfe-600x315w.png';
 import Logo from '../../../public/001_2XAE9J2L6B1UIZ1main.png';
 import useLogin from '../../hooks/useLogin';
-import usePersianNumToEn from "../../hooks/usePersianNumToEn"
 
 const SignIn: React.FC = () => {
   const { loading, error, loggedIn, login } = useLogin();
@@ -63,6 +62,8 @@ const SignIn: React.FC = () => {
                 <img className="hidden dark:block w-60" src={Logo} alt="Logo" />
                 <img className="dark:hidden w-60" src={LogoDark} alt="Logo" />
               </Link>
+
+             
             </div>
           </div>
 
@@ -78,17 +79,28 @@ const SignIn: React.FC = () => {
                     شماره همراه
                   </label>
                   <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="شماره همراه خود را وارد کنید"
-                      value={phoneNumber}
-                      onChange={(e) => {
-                        const convertedValue = usePersianNumToEn(e.target.value);
-                        setPhoneNumber(convertedValue);
-                      }}
-                      
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    />
+                  <input
+    type="text"
+    placeholder="شماره همراه خود را وارد کنید"
+    value={phoneNumber}
+    onChange={(e) => {
+        const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
+        const englishDigits = '0123456789';
+        const input = e.target.value;
+        let convertedNumber = '';
+        for (const char of input) {
+            const index = persianDigits.indexOf(char);
+            if (index !== -1) {
+                convertedNumber += englishDigits[index];
+            } else {
+                convertedNumber += char;
+            }
+        }
+        setPhoneNumber(convertedNumber);
+    }}
+    className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+/>
+
 
                     <span className="absolute right-4 top-4">
                       <svg

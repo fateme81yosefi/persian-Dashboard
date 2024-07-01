@@ -83,10 +83,9 @@ const SignIn: React.FC = () => {
                       placeholder="شماره همراه خود را وارد کنید"
                       value={phoneNumber}
                       onChange={(e) => {
-                        const convertedValue = usePersianNumToEn(e.target.value);
-                        setPhoneNumber(convertedValue);
+                        
+                        setPhoneNumber(usePersianNumToEn(e.target.value));
                       }}
-                      
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 

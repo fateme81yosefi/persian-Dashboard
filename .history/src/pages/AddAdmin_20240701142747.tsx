@@ -120,7 +120,7 @@ const AddAdmin: React.FC = () => {
                 onClick={handleAddAdmin}
                 className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
               >
-                افزودن ادمین
+                افزو
               </button>
             </div>
           </form>

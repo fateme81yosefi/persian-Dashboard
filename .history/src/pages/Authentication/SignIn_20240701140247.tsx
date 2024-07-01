@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import LogoDark from '../../../public/73b98efb3ac343b48544a710e68c6dfe-600x315w.png';
 import Logo from '../../../public/001_2XAE9J2L6B1UIZ1main.png';
 import useLogin from '../../hooks/useLogin';
-import usePersianNumToEn from "../../hooks/usePersianNumToEn"
 
 const SignIn: React.FC = () => {
   const { loading, error, loggedIn, login } = useLogin();
@@ -56,18 +55,20 @@ const SignIn: React.FC = () => {
         </div>
       )}
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div className="flex flex-wrap items-center flex-col">
+        <div className="flex flex-wrap items-center ">
           <div className="hidden w-full xl:block xl:w-1/2">
-            <div className="text-center">
-              <Link className="mb-1 inline-block" to="/">
+            <div className="py-17.5 px-26 text-center">
+              <Link className="mb-5.5 inline-block" to="/">
                 <img className="hidden dark:block w-60" src={Logo} alt="Logo" />
                 <img className="dark:hidden w-60" src={LogoDark} alt="Logo" />
               </Link>
+
+             
             </div>
           </div>
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
-            <div className="w-full p-2 sm:p-12.5 xl:p-17.5">
+            <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 ورود به داشبورد
               </h2>
@@ -82,11 +83,7 @@ const SignIn: React.FC = () => {
                       type="text"
                       placeholder="شماره همراه خود را وارد کنید"
                       value={phoneNumber}
-                      onChange={(e) => {
-                        const convertedValue = usePersianNumToEn(e.target.value);
-                        setPhoneNumber(convertedValue);
-                      }}
-                      
+                      onChange={(e) => setPhoneNumber(e.target.value)}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 

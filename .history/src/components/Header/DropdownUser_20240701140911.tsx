@@ -138,7 +138,7 @@ const DropdownUser = () => {
               />
             </svg>
             خروج
-          </Link>
+          </>
         </div>
       )}
       {/* <!-- Dropdown End --> */}
